@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Street Light Outage Reporting System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>Street Light Outage &amp; Dark Spot Reporting System</h1>
+
+  <nav>
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="report.html">Report Outage</a>
+    <a href="dashboard.html">Repair Status</a>
+    <a href="insights.html">Insights</a>
+    <a href="helpline.html">Helpline</a>
+  </nav>
+
+  <section class="hero">
+    <div class="lamp" aria-hidden="true"></div>
+    <h2>A dark street is an unsafe street.</h2>
+    <p>Report a broken or flickering streetlight in your ward and follow the repair until the light is back on.</p>
+    <div class="hero-actions">
+      <a href="report.html" class="btn">Report a streetlight</a>
+      <a href="dashboard.html">See repair status</a>
+    </div>
+  </section>
+
+  <section class="status-strip" aria-label="Repair summary">
+    <div class="status-item status-total">
+      <span class="status-count" id="stat-total">0</span>
+      <span class="status-label">Total reports</span>
+    </div>
+    <div class="status-item status-waiting">
+      <span class="status-count" id="stat-waiting">0</span>
+      <span class="status-label">Waiting for repair</span>
+    </div>
+    <div class="status-item status-repairing">
+      <span class="status-count" id="stat-repairing">0</span>
+      <span class="status-label">Under repair</span>
+    </div>
+    <div class="status-item status-repaired">
+      <span class="status-count" id="stat-repaired">0</span>
+      <span class="status-label">Repaired</span>
+    </div>
+  </section>
+
+  <footer>
+    Street Light Outage Reporting System, an LPU frontend project.
+  </footer>
+
+  <script src="js/data.js"></script>
+</body>
+</html>
