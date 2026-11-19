@@ -23,6 +23,35 @@
   <h2>Insights</h2>
   <p>Ward-wise and priority-wise summary of all complaints.</p>
 
+  <section class="insights-wrap">
+
+    <div class="insights-card">
+      <h3>Complaints by priority</h3>
+      <div id="insights-priority"></div>
+      <p class="insights-note" id="insights-open-note"></p>
+    </div>
+
+    <div class="insights-card">
+      <h3>Complaints by ward</h3>
+      <div class="insights-table-scroll">
+        <table class="insights-table">
+          <thead>
+            <tr>
+              <th>Ward</th>
+              <th>Total</th>
+              <th>Waiting</th>
+              <th>Under repair</th>
+              <th>Repaired</th>
+            </tr>
+          </thead>
+          <tbody id="insights-ward-body"></tbody>
+        </table>
+      </div>
+      <p class="insights-note" id="insights-empty" hidden>No complaints yet.</p>
+    </div>
+
+  </section>
+
   <script src="js/data.js"></script>
   <script src="js/insights.js"></script>
 </body>
