@@ -1,2 +1,117 @@
+/* report.css - tere apne HTML ke hisaab se (HTML me kuch change nahi karna) */
+
+/* Padding ko width ke andar ginna, taaki sab boxes barabar chaude rahein */
+* {
+  box-sizing: border-box;
+}
+
+/* Poora page: raat jaisa dark background (width limit yahan nahi, taaki header poori width le) */
+body {
+  margin: 0;
+  background: #0e1726;
+  color: #f3efe6;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Form ka box: 650px chaudai, page ke beech me (margin auto) */
+.report-page {
+  max-width: 650px;
+  margin: 40px auto 56px;
+  padding: 32px;
+  background: #16233a;
+  border: 1px solid #2b3a55;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Chhote screen par box kinaron se na chipke */
+@media (max-width: 700px) {
+  .report-page {
+    margin: 24px 16px 40px;
+    padding: 20px;
+  }
+}
+
+/* Heading aur chhota text */
+h2 {
+  margin: 0 0 6px;
+  color: #ffb347;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.9rem;
+}
+
+p {
+  margin: 0 0 28px;
+  color: #9fb0c8;
+}
+
+/* Har field ka naam */
+label {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+/* Text box, dropdown aur file input */
+input[type="text"],
+input[type="file"],
+select {
+  width: 100%;
+  padding: 12px;
+  color: #f3efe6;
+  background: #0e1726;
+  border: 1px solid #2b3a55;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+/* Click karne par amber border */
+input[type="text"]:focus,
+input[type="file"]:focus,
+select:focus {
+  outline: none;
+  border-color: #ffb347;
+}
+
+/* Outage type wala box */
+fieldset {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid #2b3a55;
+  border-radius: 4px;
+}
+
+/* Fieldset ka title (Outage Type) bold, baaki radio ke naam normal */
+fieldset label {
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+fieldset label[for] {
+  font-weight: bold;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #ffb347;
+}
+
+/* Submit button */
+button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 4px;
+  background: #ffb347;
+  color: #0e1726;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffc673;
+}
 /* report.css  -  sirf Member 2 edit karega.
    Apni classes ke naam ke aage "report-" lagana (jaise report-box) */
