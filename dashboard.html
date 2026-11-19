@@ -23,6 +23,42 @@
   <h2>Repair Status Dashboard</h2>
   <p>Track reported vs repaired street lights.</p>
 
+  <section class="dash-wrap">
+
+    <div class="dash-progress" aria-label="Repair progress">
+      <div class="dash-progress-text">
+        <span id="dash-percent">0%</span> of all complaints are repaired
+      </div>
+      <div class="dash-bar"><div class="dash-bar-fill" id="dash-bar-fill"></div></div>
+    </div>
+
+    <div class="dash-filters" role="group" aria-label="Filter by status">
+      <button type="button" class="dash-filter dash-active" data-filter="All">All <span id="dash-count-All">0</span></button>
+      <button type="button" class="dash-filter" data-filter="Reported">Waiting <span id="dash-count-Reported">0</span></button>
+      <button type="button" class="dash-filter" data-filter="Under Repair">Under repair <span id="dash-count-Under Repair">0</span></button>
+      <button type="button" class="dash-filter" data-filter="Repaired">Repaired <span id="dash-count-Repaired">0</span></button>
+    </div>
+
+    <div class="dash-table-scroll">
+      <table class="dash-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Landmark</th>
+            <th>Ward</th>
+            <th>Issue</th>
+            <th>Priority</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="dash-body"></tbody>
+      </table>
+    </div>
+    <p class="dash-empty" id="dash-empty" hidden>No complaints in this category.</p>
+
+  </section>
+
   <script src="js/data.js"></script>
   <script src="js/dashboard.js"></script>
 </body>
