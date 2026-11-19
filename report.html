@@ -1,29 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Report Outage - Street Light Reporting</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/report.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/report.css">
 </head>
 <body>
 
-  <h1>Street Light Outage &amp; Dark Spot Reporting System</h1>
+    <h1>Street Light Outage &amp; Dark Spot Reporting System</h1>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="report.html" aria-current="page">Report Outage</a>
-    <a href="dashboard.html">Repair Status</a>
-    <a href="insights.html">Insights</a>
-    <a href="helpline.html">Helpline</a>
-  </nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="report.html" aria-current="page">Report Outage</a>
+        <a href="dashboard.html">Repair Status</a>
+        <a href="insights.html">Insights</a>
+        <a href="helpline.html">Helpline</a>
+    </nav>
 
-  <!-- Member 2: neeche ka kaam tera hai. h1 aur nav ko mat chhedna. -->
-  <h2>Report Outage</h2>
-  <p>Fill the form to report a broken or flickering street light.</p>
+    <div class="report-page">
 
-  <script src="js/data.js"></script>
-  <script src="js/report.js"></script>
+    <h2>Report a streetlight outage</h2>
+
+    <p>Help us find and fix strretlight problems in your area.</p>
+
+    <label for="polenumber">Pole number or street landmark</label><br>
+    <input type="text" id="polenumber" placeholder="e.g. Pole 45, Railway Road required"><br><br>
+
+    <label for="ward">Ward Number</label><br>
+    <select id="ward" required>
+        <option value="">select ward</option>
+        <option value="ward 1">ward 1</option>
+        <option value="ward 2">ward 2</option>
+        <option value="ward 3">ward 3</option>
+        <option value="ward 4">ward 4</option>
+        <option value="ward 5">ward 5</option>
+        <option value="ward 6">ward 6</option>
+        <option value="ward 7">ward 7</option>
+        <option value="ward 8">ward 8</option>
+        <option value="ward 9">ward 9</option>
+        <option value="ward 10">ward 10</option>
+        <option value="ward 11">ward 11</option>
+        <option value="ward 12">ward 12</option>
+        <option value="ward 13">ward 13</option>
+        <option value="ward 14">ward 14</option>
+        
+    </select><br><br>
+
+    <fieldset>
+        <label for="outageType">Outage Type</label><br>
+        <label id="outageType"><input type="radio"="completely dark">completely dark</input></label><br>
+        <label id="outageType"><input type="radio"="Flickering">Flickering</input></label><br>
+        <label id="outageType"><input type="radio"="Damaged pole">Damaged pole</input></label><br>
+    </fieldset><br>
+
+    <label for="nearbylocation">Nearby location</label><br>
+    <select id="nearbylocation" required>
+        <option value="">Select Location</option>
+        <option value="school">school</option>
+        <option value="main road">Main road</option>
+        <option value="Residential">Residential</option>
+        <option value="bus stop">Bus stop</option>
+    </select><br><br>
+
+    <label for="photo">Photo</label><br>
+    <input type="file" id="photo"><br><br>
+
+    <button type="button" id="submitcomplaint">Submit Complaint</button>
+
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/report.js"></script>
 </body>
 </html>
