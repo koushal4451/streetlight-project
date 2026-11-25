@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1726">
+  <title>Repair Status - Street Light Reporting</title>
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./dashboard.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#">
+      Street Light Outage &amp; Dark Spot Reporting System
+    </a>
+
+    <nav class="navigation" aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="report.html">Report Outage</a>
+  <a class="active" href="dashboard.html">Repair Status</a>
+  <a href="insights.html">Insights</a>
+  <a href="helpline.html">Helpline</a>
+  <button id="theme-toggle" class="theme-toggle" type="button">
+    Light mode
+  </button>
+</nav>
+  </header>
+
+  <main class="dashboard" id="repairs">
+    <h1>Repair status dashboard</h1>
+    <p class="subtitle">
+      Every reported streetlight and where its repair stands.
+    </p>
+
+    <section class="progress-card" aria-label="Repair progress">
+      <div id="progress-label" class="progress-label">
+        3 of 10 poles repaired (30%)
+      </div>
+      <div
+        class="progress-track"
+        role="progressbar"
+        aria-label="Poles repaired"
+        aria-valuemin="0"
+        aria-valuemax="10"
+        aria-valuenow="3"
+      >
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Filter reports">
+      <div class="filter-buttons">
+        <button class="filter-button" data-filter="all" type="button">
+          All
+        </button>
+        <button class="filter-button" data-filter="high" type="button">
+          High priority
+        </button>
+        <button class="filter-button" data-filter="pending" type="button">
+          Pending
+        </button>
+        <button
+          class="filter-button selected"
+          data-filter="repaired"
+          type="button"
+        >
+          Repaired
+        </button>
+      </div>
+
+      <label class="search-label">
+        <span class="sr-only">Search by ward or landmark</span>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search by ward or landmark"
+        >
+      </label>
+    </section>
+
+    <p id="result-count" class="result-count" aria-live="polite">
+      Showing 3 of 10 reports
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Location</th>
+            <th scope="col">Ward</th>
+            <th scope="col">Outage type</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="report-rows"></tbody>
+      </table>
+
+      <p id="empty-state" class="empty-state" hidden>
+        No reports match your filters.
+      </p>
+    </div>
+
+    <button id="reset" class="reset-button" type="button">
+      Reset demo data
+    </button>
+  </main>
+  <script src="./data.js"></script>
+<script src="./dashboard.js"></script>
+  </body>
+</html>

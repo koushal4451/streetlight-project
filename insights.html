@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights - Street Light Reporting</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./insights.css">
+</head>
+<body>
+  <h1>Street Light Outage &amp; Dark Spot Reporting System</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="report.html">Report Outage</a>
+    <a href="dashboard.html">Repair Status</a>
+    <a href="insights.html" aria-current="page">Insights</a>
+    <a href="helpline.html">Helpline</a>
+  </nav>
+
+  <main class="insights-page">
+    <h2>Insights</h2>
+    <p class="insights-intro">Where the problems are, and how serious they are.</p>
+
+    <div class="insights-grid">
+      <section class="insights-card">
+        <h3>Complaints by priority</h3>
+        <div id="chart-priority"></div>
+      </section>
+
+      <section class="insights-card">
+        <h3>Complaints by outage type</h3>
+        <div id="chart-outage"></div>
+      </section>
+
+      <section class="insights-card">
+        <h3>Complaints by location</h3>
+        <div id="chart-nearby"></div>
+      </section>
+
+      <section class="insights-card">
+        <h3>Complaints by ward</h3>
+        <div id="chart-ward"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="./data.js"></script>
+  <script src="./insights.js"></script>
+</body>
+</html>

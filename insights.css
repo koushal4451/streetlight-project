@@ -1,0 +1,72 @@
+/* insights.css - sirf Aman edit karega */
+
+.insights-page {
+  width: calc(100% - 32px);
+  max-width: 960px;
+  margin: 0 auto 48px;
+}
+
+.insights-page h2 {
+  margin: 32px 0 4px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+}
+
+.insights-intro {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.insights-card {
+  padding: 20px 24px;
+  background: var(--panel);
+  border-radius: 6px;
+}
+
+.insights-card h3 {
+  margin: 0 0 16px;
+  font-size: 1.05rem;
+}
+
+/* Chart ki ek row: naam | bar | number */
+.insights-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 28px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.insights-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.insights-track {
+  height: 14px;
+  background: var(--night);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.insights-bar {
+  height: 100%;
+  background: var(--amber);
+}
+
+.insights-count {
+  text-align: right;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}

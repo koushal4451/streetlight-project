@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Outage - Street Light Reporting</title>
+  <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./report.css">
+</head>
+<body>
+
+  <h1 id="heading">Street Light Outage &amp; Dark Spot Reporting System</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="report.html" aria-current="page">Report Outage</a>
+    <a href="dashboard.html">Repair Status</a>
+    <a href="insights.html">Insights</a>
+    <a href="helpline.html">Helpline</a>
+  </nav>
+
+  <main class="report-container">
+    <div class="report-box">
+      <h2 class="report-title">Report a streetlight outage</h2>
+      <p class="report-subtitle">Help us find and fix streetlight problems in your area.</p>
+
+      <form id="report-form">
+
+        <div class="report-group">
+          <label for="landmark">Pole number or street landmark</label>
+          <input type="text" id="landmark" name="landmark" placeholder="e.g. Pole 45, Railway Road" required>
+        </div>
+
+        <div class="report-group">
+          <label for="ward">Ward number</label>
+          <select id="ward" name="ward" required>
+            <option value="">Select ward</option>
+          </select>
+        </div>
+
+        <fieldset class="report-group">
+          <legend>Outage type</legend>
+          <div class="report-radio-group">
+            <label class="report-radio"><input type="radio" name="outageType" value="Completely Dark" required> Completely dark</label>
+            <label class="report-radio"><input type="radio" name="outageType" value="Flickering"> Flickering</label>
+            <label class="report-radio"><input type="radio" name="outageType" value="Damaged Pole"> Damaged pole</label>
+          </div>
+        </fieldset>
+
+        <div class="report-group">
+          <label for="nearby">Nearby location</label>
+          <select id="nearby" name="nearby" required>
+            <option value="">Select location</option>
+            <option value="School">School</option>
+            <option value="Bus Stop">Bus stop</option>
+            <option value="Dark Alleyway">Dark alleyway</option>
+            <option value="Main Road">Main road</option>
+            <option value="Residential">Residential</option>
+          </select>
+        </div>
+
+        <div class="report-group">
+          <label for="photo">Photo</label>
+          <input type="file" id="photo" name="photo" accept="image/*" required>
+        </div>
+
+        <button type="submit" class="report-button">Submit complaint</button>
+      </form>
+
+      <div id="report-result" class="report-result" aria-live="polite"></div>
+    </div>
+  </main>
+
+ <script src="./data.js"></script>
+<script src="./report.js"></script>
+</body>
+</html>

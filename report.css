@@ -1,0 +1,263 @@
+/* report.css  -  sirf Member 2 edit karega.
+   Colors style.css ke variables se aate hain (--night, --panel, --line, --amber...). */
+
+/* Page ke upar halki amber roshni, jaise lamp ke neeche ka pool */
+.report-container {
+  /* >>> BACKGROUND IMAGE: neeche quotes ke andar apni image ka address paste karo <<<
+     (Image ka address ya to https://... wala link ho, ya local file jaise "../images/street.jpg") */
+  --report-bg: url("report-bg.svg");
+
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 40px 16px 64px;
+  /* Upar se neeche: amber glow, phir gehra overlay (taaki form saaf padha jaaye), phir image.
+     Image na mile to bhi glow aur dark background dikhega. */
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 179, 71, 0.18), transparent 70%),
+    linear-gradient(rgba(14, 23, 38, 0.3), rgba(14, 23, 38, 0.1)),
+    var(--report-bg) center bottom / cover no-repeat,
+    var(--night);
+}
+
+/* Form ka box: ek baar upar se halka sa utarta hai */
+.report-box {
+  width: 100%;
+  max-width: 650px;
+  padding: 36px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--amber);
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 60px rgba(255, 179, 71, 0.08);
+  animation: report-rise 0.5s ease-out both;
+}
+
+@keyframes report-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.report-title {
+  margin: 0 0 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
+
+.report-subtitle {
+  margin: 0 0 28px;
+  padding-bottom: 22px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+
+.report-group {
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+}
+
+.report-group > label,
+.report-group > legend {
+  display: block;
+  margin-bottom: 8px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Text box, dropdown aur file input ek jaisa look */
+.report-group input[type="text"],
+.report-group input[type="file"],
+.report-group select {
+  width: 100%;
+  padding: 12px 14px;
+  color: var(--text);
+  background: var(--night);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.report-group input::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.report-group input:hover,
+.report-group select:hover {
+  border-color: var(--muted);
+}
+
+.report-group input:focus-visible,
+.report-group select:focus-visible {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.25);
+}
+
+/* Dropdown ka apna amber teer */
+.report-group select {
+  appearance: none;
+  padding-right: 40px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23ffb347' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.report-group select option {
+  background: var(--panel);
+  color: var(--text);
+}
+
+/* File input ka button */
+.report-group input[type="file"] {
+  padding: 8px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.report-group input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 16px;
+  color: var(--night);
+  background: var(--amber);
+  border: 0;
+  border-radius: 4px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.report-group input[type="file"]::file-selector-button:hover {
+  background: #ffc673;
+}
+
+/* Outage type: radio ab chune jaane wale cards hain */
+.report-radio-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.report-group .report-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 14px;
+  background: var(--night);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.report-radio:hover {
+  border-color: var(--muted);
+}
+
+.report-radio input {
+  margin: 0;
+  accent-color: var(--amber);
+}
+
+/* Jo option chuna ho wo amber se highlight hota hai */
+.report-radio:has(input:checked) {
+  background: rgba(255, 179, 71, 0.12);
+  border-color: var(--amber);
+}
+
+.report-radio:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.25);
+}
+
+/* Submit button */
+.report-button {
+  width: 100%;
+  margin-top: 4px;
+  padding: 14px;
+  color: var(--night);
+  background: var(--amber);
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+.report-button:hover {
+  background: #ffc673;
+  box-shadow: 0 0 28px rgba(255, 179, 71, 0.5);
+}
+
+.report-button:active {
+  transform: translateY(1px);
+}
+
+.report-button:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+.report-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Submit ke baad ka message: result aane par apne aap box ban jaata hai */
+.report-result {
+  margin-top: 22px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.report-result:not(:empty) {
+  padding: 16px;
+  background: rgba(90, 209, 154, 0.1);
+  border: 1px solid var(--green);
+  border-radius: 6px;
+  animation: report-rise 0.4s ease-out both;
+}
+
+/* Priority badge */
+.report-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  color: var(--night);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.report-badge-high   { background: var(--red); }
+.report-badge-medium { background: var(--amber); }
+.report-badge-normal { background: var(--green); }
+
+/* Mobile */
+@media (max-width: 600px) {
+  .report-box {
+    padding: 24px 18px;
+  }
+
+  .report-radio-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Jinhe animation pasand nahi, unke liye band */
+@media (prefers-reduced-motion: reduce) {
+  .report-box,
+  .report-result:not(:empty) {
+    animation: none;
+  }
+}

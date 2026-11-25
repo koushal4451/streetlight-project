@@ -1,0 +1,379 @@
+/* =====================================================
+   style.css  -  poore project ka look (sirf Aman edit karega)
+   Idea: raat ki sadak + sodium streetlight ka amber glow
+   ===================================================== */
+
+/* 1. Saare colors yahin se (ye dark theme hai, default) */
+:root {
+  --night: #0e1726;      /* raat ka aasman, page background */
+  --panel: #16233a;      /* thoda halka, boxes ke liye */
+  --line: #2b3a55;       /* borders aur lamp ka pole */
+  --text: #f3efe6;       /* warm white text */
+  --muted: #9fb0c8;      /* halka text */
+  --amber: #ffb347;      /* sodium streetlight ka rang */
+  --red: #ff6b5b;        /* pending / danger */
+  --green: #5ad19a;      /* repaired */
+  --on-accent: #0e1726;  /* amber/red/green ke upar likhe text ka rang */
+}
+
+/* Light theme: site.js <html> par data-theme="light" laga deti hai */
+:root[data-theme="light"] {
+  --night: #f7f3ea;
+  --panel: #ffffff;
+  --line: #ddd5c3;
+  --text: #1b2433;
+  --muted: #566074;
+  --amber: #a65f00;
+  --red: #c8321f;
+  --green: #1f8a5b;
+  --on-accent: #ffffff;
+}
+
+/* 2. Basic setup */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--amber);
+}
+
+/* Keyboard se tab dabane pe link/button saaf dikhe */
+a:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* 3. Site ka title (sabhi pages ke upar wala h1) */
+body > h1 {
+  margin: 0;
+  padding: 18px 24px 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  color: var(--amber);
+}
+
+/* Teammates ke simple pages me text kinaare se na chipke */
+body > h2 {
+  margin: 28px 24px 8px;
+}
+
+body > p {
+  margin: 0 24px 16px;
+}
+
+/* 4. Navbar (sabhi pages me chalega) */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 0 16px;
+  background: var(--night);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  padding: 12px 14px;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+  color: var(--amber);
+}
+
+/* Jis page par ho, uska link amber underline wala dikhega */
+nav a[aria-current="page"] {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* Navbar ke 2 button: Menu (sirf mobile pe) aur Light/Dark mode */
+.nav-button {
+  padding: 6px 12px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.nav-button:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+.nav-theme {
+  margin-left: auto;
+}
+
+.nav-menu {
+  display: none;
+}
+
+/* 5. Button */
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  background: var(--amber);
+  color: var(--on-accent);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 0 24px rgba(255, 179, 71, 0.45);
+}
+
+/* 6. Hero section: lamp aur uski roshni */
+.hero {
+  text-align: center;
+  padding: 0 20px 56px;
+  /* upar se neeche failti roshni ka pool */
+  background: radial-gradient(ellipse 70% 90% at 50% 0%, rgba(255, 179, 71, 0.22), transparent 70%);
+}
+
+/* Lamp ka pole */
+.lamp {
+  position: relative;
+  width: 3px;
+  height: 56px;
+  margin: 0 auto;
+  background: var(--line);
+}
+
+/* Lamp ka sir. Page khulte hi ek baar jhilmilata hai, phir jalta rehta hai */
+.lamp::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 14px;
+  border-radius: 0 0 30px 30px;
+  background: var(--amber);
+  box-shadow: 0 6px 40px 14px rgba(255, 179, 71, 0.55);
+  animation: flicker 2.4s ease-out 1;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 62%, 100% { opacity: 1; }
+  20% { opacity: 0.3; }
+  24% { opacity: 0.7; }
+  60% { opacity: 0.45; }
+}
+
+.hero h2 {
+  max-width: 18ch;
+  margin: 44px auto 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.hero p {
+  max-width: 52ch;
+  margin: 0 auto 28px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+/* 7. Status strip: 4 numbers ek line me, har ek ke rang ki side-border */
+.status-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: calc(100% - 32px);
+  max-width: 960px;
+  margin: 0 auto 48px;
+  background: var(--panel);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.status-item {
+  padding: 20px 24px;
+  border-left: 4px solid var(--tone);
+}
+
+.status-total     { --tone: var(--text); }
+.status-waiting   { --tone: var(--red); }
+.status-repairing { --tone: var(--amber); }
+.status-repaired  { --tone: var(--green); }
+
+.status-count {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.2rem;
+  line-height: 1.1;
+  color: var(--tone);
+}
+
+.status-label {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* 8. Footer */
+footer {
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+/* 9. Home page: alert strip */
+.alert-strip {
+  display: none;
+  width: calc(100% - 32px);
+  max-width: 960px;
+  margin: 0 auto 24px;
+  padding: 14px 20px;
+  background: var(--panel);
+  border-left: 4px solid var(--red);
+  border-radius: 6px;
+}
+
+.alert-strip.show {
+  display: block;
+}
+
+.alert-strip p {
+  margin: 0;
+}
+
+/* 10. Home page: latest reports list */
+.latest {
+  width: calc(100% - 32px);
+  max-width: 960px;
+  margin: 0 auto 48px;
+}
+
+.latest h2 {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+}
+
+.latest-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--panel);
+  border-radius: 6px;
+}
+
+.latest-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.latest-item:last-child {
+  border-bottom: none;
+}
+
+.latest-place {
+  display: block;
+  font-weight: 600;
+}
+
+.latest-meta {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.latest-side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.latest-status {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.latest-more {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+/* Priority badges */
+.badge {
+  padding: 2px 10px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--on-accent);
+}
+
+.badge-high   { background: var(--red); }
+.badge-medium { background: var(--amber); }
+.badge-normal { background: var(--green); }
+
+/* 11. Mobile ke liye */
+@media (max-width: 720px) {
+  .status-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Navbar: links chhup jaate hain, "Menu" button se khulte hain */
+  .nav-menu {
+    display: inline-block;
+  }
+
+  nav a {
+    display: none;
+    padding: 10px 10px;
+  }
+
+  nav.open a {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Jinhe animation pasand nahi (phone settings), unke liye lamp seedha jalta rahe */
+@media (prefers-reduced-motion: reduce) {
+  .lamp::after {
+    animation: none;
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helpline - Street Light Reporting</title>
+ <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./helpline.css">
+</head>
+<body>
+  <script src="./helpline.js"></script>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      Street Light Outage &amp; Dark Spot Reporting System
+    </a>
+
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="report.html">Report Outage</a>
+      <a href="dashboard.html">Repair Status</a>
+      <a href="insights.html">Insights</a>
+      <a class="active" href="helpline.html">Helpline</a>
+      <button class="theme-toggle" id="theme-toggle" type="button">
+        Light mode
+      </button>
+    </nav>
+  </header>
+
+  <main class="helpline-page">
+    <h1>Emergency helpline</h1>
+    <p class="intro">Reach the municipal electrical department directly.</p>
+
+    <div class="call-buttons">
+      <a class="call-button call-main" href="tel:1912">
+        Call the helpline: 1912
+      </a>
+      <a class="call-button call-emergency" href="tel:101">
+        Emergency dispatcher: ext. 101
+      </a>
+    </div>
+
+    <p class="note">
+      On a phone these buttons open the dialer. On a computer, your calling app opens.
+    </p>
+
+    <section class="alert-card">
+      <h2>Call right away if</h2>
+      <ul>
+        <li>A wire is down or a pole is sparking. Keep well away from it.</li>
+        <li>The street near a school, bus stop or dark alley is completely dark.</li>
+      </ul>
+      <p>
+        For anything else, <a href="report.html">file a report</a> and follow it on the
+        <a href="dashboard.html">repair dashboard</a>.
+      </p>
+    </section>
+
+    <h2 class="extensions-title">Helpline extensions</h2>
+
+    <div class="table-wrap">
+      <table class="extensions">
+        <thead>
+          <tr>
+            <th>Extension</th>
+            <th>Desk</th>
+            <th>Use it for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="tel:101">Ext. 101</a></td>
+            <td>Emergency dispatcher</td>
+            <td>Fallen wires, sparking poles, outages near schools and bus stops</td>
+          </tr>
+          <tr>
+            <td><a href="tel:102">Ext. 102</a></td>
+            <td>Streetlight repair desk</td>
+            <td>Broken, flickering or damaged streetlights</td>
+          </tr>
+          <tr>
+            <td><a href="tel:103">Ext. 103</a></td>
+            <td>Complaint status</td>
+            <td>Follow up on a complaint you already reported</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
